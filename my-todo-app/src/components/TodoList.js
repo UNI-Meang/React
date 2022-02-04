@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import TodoTemplate from './TodoTemplate';
 import TodoItem from './TodoItem';
+import { useTodoState } from '../TodoContext';
 
 const TodoListBlock = styled.div`
     flex: 1;
@@ -12,11 +13,13 @@ const TodoListBlock = styled.div`
 `;
 
 function TodoList() {
+    const state = useTodoState();
+    console.log(state);
     return (
     <TodoListBlock>
         <TodoItem text ="create project" done={true} />
-        <TodoItem text ="watch netflix" done={false} />
-        <TodoItem text ="create diary" done={true} />
+        <TodoItem text ="watch netflix" done={true} />
+        <TodoItem text ="create diary" done={false} />
         <TodoItem text ="check notion" done={false} />
     </TodoListBlock>
     );

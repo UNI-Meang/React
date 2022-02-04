@@ -4,22 +4,22 @@ const initialTodos = [
     {
         id: 1,
         text: '프로젝트 만들기',
-        done: true,
+        done: true
     },
     {
         id: 2,
         text: '다이어리 만들기',
-        done: true,
+        done: true
     },
     {
         id: 3,
         text: '컴포넌트 스타일링하기',
-        done: false,
+        done: false
     },
     {
         id: 4,
         text: '기능 구현하기',
-        done: false,
+        done: false
     }
 ];
 
@@ -46,7 +46,7 @@ const TodoNextIdContext = createContext();
 
 export function TodoProvider({ children }) {
     const [state, dispatch] = useReducer(todoReducer, initialTodos);
-    const nextId = useref(5);
+    const nextId = useRef(5);
     return (
         <TodoStateContext.Provider value={state}>
             <TodoDispatchContext.Provider value={dispatch}>
@@ -61,14 +61,26 @@ export function TodoProvider({ children }) {
 //hook
 
 export function useTodoState() {
-    return useContext(TodoStateContext);
+    const context = useContext(TodoStateContext);
+    if(!context) {
+        throw new Error('Cannot find TodoProvider');
+    }
+    return context;
 }
 
 export function useTodoDispatch() {
-    return useContext(TodoDispatchContext);
+    const context = useContext(TodoDispatchContext);
+    if(!context) {
+        throw new Error('Cannot find TodoProvider');
+    }
+    return context;
 }
 
 export function useTodoNextId() {
-    return useContext(TodoNextIdContext);
+    const context = useContext(TodoNextIdContext);
+    if(!context) {
+        throw new Error('Cannot find TodoProvider');
+    }
+    return context;
 }
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components';
 import { MdDone, MdDelete} from 'react-icons/md';
+import { useTodoDispatch } from '../TodoContext';
 
 const CheckCircle = styled.div`
     display: flex;
@@ -55,7 +56,7 @@ const TodoItemBlock = styled.div`
     padding-top: 12px;
     padding-bottom: 12px;
     &:hover {
-        ${Remove} {
+        ${Remove} { 
             opacity: 1;
         }
     }
