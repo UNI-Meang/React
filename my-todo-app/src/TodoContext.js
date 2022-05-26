@@ -47,7 +47,7 @@ const TodoNextIdContext = createContext();
 export function TodoProvider({ children }) {
     const [state, dispatch] = useReducer(todoReducer, initialTodos);
     const nextId = useRef(5);
-    
+
     return (
         <TodoStateContext.Provider value={state}>
             <TodoDispatchContext.Provider value={dispatch}>
@@ -59,7 +59,7 @@ export function TodoProvider({ children }) {
     );
 }
 
-//hook
+//hook => 폴더 따로 빼기
 
 export function useTodoState() {
     const context = useContext(TodoStateContext);
