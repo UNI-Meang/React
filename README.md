@@ -3,7 +3,7 @@
 
 ## 1. Diary 
 ## 2. To-do list 
-## 3. Opple web site clone
+## 3. OTT website 
 ----
 
 # What is React? 
